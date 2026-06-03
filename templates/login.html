@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign In - CrowdSentinel</title>
+  <meta name="description" content="Sign in to CrowdSentinel AI-powered stampede detection system"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+</head>
+<body class="auth-page">
+<div class="auth-card">
+
+  <!-- Logo -->
+  <div class="auth-logo">
+    <div class="auth-logo-icon">&#x1F6E1;</div>
+    <span class="auth-logo-text">CrowdSentinel</span>
+  </div>
+
+  <!-- Flash messages -->
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <ul class="flash-list">
+        {% for category, msg in messages %}
+          <li class="flash flash-{{ category }}">{{ msg }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+
+  <h1 class="auth-title">Welcome back</h1>
+  <p class="auth-sub">Sign in to access the AI crowd monitoring system</p>
+
+  <form method="POST" action="{{ url_for('login') }}" novalidate id="loginForm">
+    <!-- Username or Email -->
+    <div class="form-group">
+      <label class="form-label" for="identifier">Username or Email</label>
+      <div class="input-wrap">
+        <span class="input-icon">&#x1F464;</span>
+        <input class="input" type="text" id="identifier" name="identifier"
+               placeholder="Enter username or email" required autocomplete="username"/>
+      </div>
+    </div>
+
+    <!-- Password -->
+    <div class="form-group">
+      <label class="form-label" for="password">Password</label>
+      <div class="input-wrap">
+        <span class="input-icon">&#x1F512;</span>
+        <input class="input" type="password" id="password" name="password"
+               placeholder="Enter password" required autocomplete="current-password"/>
+      </div>
+    </div>
+
+    <!-- Remember me -->
+    <div class="remember-row">
+      <input type="checkbox" id="remember" name="remember"/>
+      <label for="remember">Remember me for 30 days</label>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-full" id="loginBtn">Sign In</button>
+  </form>
+
+  <div class="auth-footer">
+    Don't have an account?
+    <a href="{{ url_for('register') }}">Create one</a>
+  </div>
+
+  <div style="margin-top:1.25rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.06);text-align:center">
+    <p style="font-size:.75rem;color:rgba(255,255,255,0.3)">Demo: admin / admin123</p>
+  </div>
+</div>
+</body>
+</html>
