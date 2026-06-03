@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+venv/
+.env
+database/*.db
+static/outputs/*
+!static/outputs/.gitkeep
+models/yolov8n.pt
+*.log
+.DS_Store
