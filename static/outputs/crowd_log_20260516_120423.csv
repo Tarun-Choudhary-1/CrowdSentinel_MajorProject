@@ -1,0 +1,3 @@
+timestamp,count,risk_score,risk_level,density,avg_speed
+2026-05-16T12:05:01,3,0.2401,LOW,0.0582,1.6208
+2026-05-16T12:05:09,1,0.2241,LOW,0.0527,3.2681
